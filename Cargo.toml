@@ -1,0 +1,21 @@
+[package]
+name = "src-manage"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.20", features = ["derive"] }
+serde = { version = "1.0.214", features = ["derive"] }
+serde_json = "1.0.132"
+gix = { version = "0.67.0", features = [
+  "blocking-network-client",
+  "prodash",
+  "progress-tree",
+] }
+eyre = "0.6.12"
+url = { version = "2.5.3", features = ["serde"] }
+etcetera = "0.8.0"
+signal-hook = "0.3.17"
+tempfile = "3.14.0"
+dialoguer = "0.11.0"
+thiserror = "2.0.3"
