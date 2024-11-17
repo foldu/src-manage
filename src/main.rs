@@ -107,11 +107,13 @@ fn sync(config: &Config, host: &str) -> Result<(), eyre::Error> {
     target.push(&path);
     target.push("/");
 
-    Command::new("rsync")
-        .arg("-azvP")
-        .arg("./")
-        .arg(target)
-        .run()?;
+    let mut cmd = Command::new("rsync");
+    if fs::exists(".gitignore").context("Failed statting .gitignore")? {
+        cmd.arg("--filter=:- .gitignore");
+    }
+
+    cmd.arg("-azvP").arg("./").arg(target).run()?;
+
     Ok(())
 }
 
