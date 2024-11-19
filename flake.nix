@@ -45,6 +45,7 @@
                 lib.makeBinPath (
                   with pkgs;
                   [
+                    openssh
                     sshfs
                     rsync
                   ]
