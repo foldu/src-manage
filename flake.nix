@@ -48,6 +48,7 @@
                     openssh
                     sshfs
                     rsync
+                    fuse
                   ]
                 )
               }
